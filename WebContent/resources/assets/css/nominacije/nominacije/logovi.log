@@ -1,0 +1,6 @@
+[15-Feb-2018 12:43:21 UTC] PHP Warning:  mysqli::mysqli(): (HY000/2002): No connection could be made because the target machine actively refused it.
+ in C:\wamp\www\nominacije\konekcija.php on line 13
+[15-Feb-2018 12:43:21 UTC] PHP Stack trace:
+[15-Feb-2018 12:43:21 UTC] PHP   1. {main}() C:\wamp\www\nominacije\pretragaNominacija.php:0
+[15-Feb-2018 12:43:22 UTC] PHP   2. include() C:\wamp\www\nominacije\pretragaNominacija.php:2
+[15-Feb-2018 12:43:22 UTC] PHP   3. mysqli->mysqli() C:\wamp\www\nominacije\konekcija.php:13

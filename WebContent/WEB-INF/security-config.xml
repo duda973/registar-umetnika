@@ -1,0 +1,49 @@
+<b:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:b="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/security https://www.springframework.org/schema/security/spring-security.xsd">
+
+	<http auto-config="true">
+		<intercept-url pattern="/pocetna" access="permitAll" />
+<!-- 		<intercept-url pattern="/administracija/**" access="hasAuthority('Superadmin')" /> -->
+<!-- 		<intercept-url pattern="/administracija/korisnici" access="hasAuthority('Superadmin') OR hasAuthority('Ministarstvo')" /> -->
+		
+		<intercept-url pattern="/administracija" access="hasAuthority('Superadmin') OR hasAuthority('Ministarstvo') OR hasAuthority('Udruyenje') OR hasAuthority('Lokalna samouprava')" />
+		<intercept-url pattern="/administracija/korisnici" access="hasAuthority('Superadmin') OR hasAuthority('Ministarstvo') OR hasAuthority('Udruyenje') OR hasAuthority('Lokalna samouprava')" />
+		<intercept-url pattern="/administracija/korisnici/**"  access="hasAuthority('Superadmin')"/>
+		
+		<form-login  login-page="/login"
+                     username-parameter="username"
+                     password-parameter="password" 
+                     default-target-url="/"/>
+       	<access-denied-handler error-page="/nedozvoljenPristup" />              
+		<csrf />
+	</http>
+
+	<b:bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<b:property name="driverClassName"
+			value="com.mysql.jdbc.Driver" />
+		<b:property name="url"
+			value="jdbc:mysql://localhost:3306/registarsamostalnihumetnika?useSSL=false" />
+		<b:property name="username" value="root" />
+		<b:property name="password" value="" />
+	</b:bean>
+
+
+	<authentication-manager>
+		<authentication-provider>
+			<password-encoder ref="encoder" />
+			<jdbc-user-service data-source-ref="dataSource"
+				users-by-username-query="select username,password, enabled from korisnik where username=?"
+				authorities-by-username-query="select k.username, u.nazivuloge from korisnik k, uloga u where k.ulogaid = u.ulogaid and k.username =?" />
+		</authentication-provider>
+	</authentication-manager>
+
+	<b:bean id="encoder"
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+		<b:constructor-arg name="strength" value="12" />
+	</b:bean>
+</b:beans>

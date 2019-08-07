@@ -1,0 +1,13 @@
+registar_umetnika\regum\dao\KorisnikDAO.class
+registar_umetnika\regum\service\CustomerServiceImpl.class
+registar_umetnika\regum\entity\Uloga.class
+registar_umetnika\regum\service\CustomerService.class
+registar_umetnika\regum\entity\Korisnik.class
+registar_umetnika\regum\controller\CustomerController.class
+registar_umetnika\regum\dao\CustomerDAO.class
+registar_umetnika\regum\entity\Customer.class
+registar_umetnika\regum\controller\KorisnikController.class
+registar_umetnika\regum\service\KorisnikServiceImpl.class
+registar_umetnika\regum\dao\KorisnikDAOImpl.class
+registar_umetnika\regum\dao\CustomerDAOImpl.class
+registar_umetnika\regum\service\KorisnikService.class

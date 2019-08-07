@@ -1,0 +1,21 @@
+<?php
+
+error_reporting(E_ALL | E_STRICT);
+ini_set("display_errors", false);
+ini_set("log_errors", true);
+ini_set("error_log", "logovi.log");
+
+	$servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "oscar";
+
+    $konekcija = new mysqli($servername,$username,$password,$dbname);
+
+    if($konekcija->connect_error)
+    {
+        die("Connection failed: " . $konekcija->connect_error);
+    }
+
+	$konekcija->set_charset("utf8");
+ ?>
