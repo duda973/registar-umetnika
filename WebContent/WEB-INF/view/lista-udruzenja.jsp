@@ -37,11 +37,73 @@
 				<div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 ">
 					<div class="text-center">
 						<h1>
-							<i class="fa fa-book small-icons bk-color-blue"></i>Lista udruzenja
+							<i class="fa fa-book small-icons bk-color-blue"></i> Lista udruzenja
 						</h1>
+
+						<table class="table">
+							<thead class="thead-dark">
+								<tr>
+									<th class='text-center'>Maticni broj</th>
+									<th class='text-center'>PIB</th>
+									<th class='text-center'>Naziv</th>
+									<th class='text-center'>Sediste</th>
+									<th class='text-center'>Adresa</th>
+									<th class='text-center'>Datum osnivanja</th>
+									<th class='text-center'>Podrucje</th>
+									<th class='text-center'>Zastupnik</th>
+									<sec:authorize access="hasAuthority('Superadmin')">
+										<th class='text-center'>Opcije</th>
+									</sec:authorize>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="trenutnoUdruzenje" items="${udruzenja}">
+									<c:url var="izmeniLink" value="/administracija/udruzenja/izmeni-udruzenje">
+										<c:param name="udruzenjeId"
+											value="${trenutnoUdruzenje.udruzenjeId}" />
+									</c:url>
+									<c:url var="obrisiLink" value="/administracija/udruzenja/obrisi-udruzenje">
+										<c:param name="udruzenjeID"
+											value="${trenutnoUdruzenje.udruzenjeId}" />
+									</c:url>
+									<c:url var="clanoviLink" value="/administracija/udruzenja/clanovi">
+										<c:param name="udruzenjeID"
+											value="${trenutnoUdruzenje.udruzenjeId}" />
+									</c:url>
+
+									<tr onclick="window.location='${clanoviLink}';">
+										<td>${trenutnoUdruzenje.maticniBroj}</td>
+										<td>${trenutnoUdruzenje.pib}</td>
+										<td>${trenutnoUdruzenje.naziv}</td>
+										<td>${trenutnoUdruzenje.sediste}</td>
+										<td>${trenutnoUdruzenje.adresa}</td>
+										<td>${trenutnoUdruzenje.datumOsnivanja}</td>
+										<td>${trenutnoUdruzenje.kulturnoPodrucje.nazivPodrucja}</td>
+										<td>${trenutnoUdruzenje.zastupnik}</td>
+										<sec:authorize access="hasAuthority('Superadmin')">
+											<td><a href="${izmeniLink}">Izmeni</a> | <a
+												href="${obrisiLink}">Obrisi</a>
+												</td>
+										</sec:authorize>
+									<tr>
+								</c:forEach>
+							</tbody>
+						</table>
 					</div>
 
-					<h3>Ovde treba da dodju udruzenja</h3>
+					<sec:authorize access="hasAuthority('Superadmin')">
+						<div class="margintop10">
+							<input type="button" value="Dodaj novo udruzenje"
+								class="form-control btn-info text-center"
+								onclick="window.location.href='${pageContext.request.contextPath}/administracija/udruzenja/dodaj-novo-udruzenje'; return false;"
+								/>
+						</div>
+						<div class="margintop10">
+							<input type="button" value="Svi korisnici"
+								class="form-control btn-info text-center"
+								onclick="window.location.href='${pageContext.request.contextPath}/administracija/udruzenja'; return false;" />
+						</div>
+					</sec:authorize>
 
 				</div>
 

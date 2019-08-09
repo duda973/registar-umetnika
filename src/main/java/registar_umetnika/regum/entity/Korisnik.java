@@ -42,7 +42,7 @@ public class Korisnik {
 	public Korisnik() {
 	}
 
-	// konstruktor bez imena
+	// konstruktor bez id-a
 	public Korisnik(String ime, String prezime, String username, String password, String email) {
 		this.ime = ime;
 		this.prezime = prezime;

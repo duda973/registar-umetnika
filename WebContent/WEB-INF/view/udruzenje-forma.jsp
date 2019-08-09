@@ -28,38 +28,45 @@
                 <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 ">
                   <div class="text-center">
                     <h1>
-																<i class="fa fa-book small-icons bk-color-brown"></i>Korisnik forma</h1>
+						<i class="fa fa-book small-icons bk-color-brown"></i>Udruzenje forma
+					</h1>
 
-                    <form:form action="sacuvaj-korisnika" modelAttribute="korisnik" method="POST">
-                      <form:hidden path="korisnikId" />
+                    <form:form action="sacuvaj-udruzenje" modelAttribute="udruzenje" method="POST">
+                      <form:hidden path="udruzenjeId" />
 
-                      <label class="margintop10" for="ime">Ime</label>
-                      <form:input path="ime" cssClass="form-control" />
+                      <label class="margintop10" for="maticniBroj">Maticni broj</label>
+                      <form:input path="maticniBroj" cssClass="form-control" />
 
-                      <label class="margintop10" for="prezime">Prezime</label>
-                      <form:input path="prezime" cssClass="form-control" />
+                      <label class="margintop10" for="pib">PIB</label>
+                      <form:input path="pib" cssClass="form-control" />
 
-                      <label class="margintop10" for="prezime">Username</label>
-                      <form:input path="username" cssClass="form-control" />
+                      <label class="margintop10" for="naziv">Naziv</label>
+                      <form:input path="naziv" cssClass="form-control" />
 
-                      <label class="margintop10" for="password">Password</label>
-                      <form:password path="password" cssClass="form-control" />
+                      <label class="margintop10" for="sediste">Sediste</label>
+                      <form:input path="sediste" cssClass="form-control" />
 
-                      <label class="margintop10" for="email">Email</label>
-                      <form:input path="email" cssClass="form-control" />
+                      <label class="margintop10" for="adresa">Adresa</label>
+                      <form:input path="adresa" cssClass="form-control" />
+                      
+                      <label class="margintop10" for="datumOsnivanja">Datum osnivanja</label>
+                      <form:input type="date" path="datumOsnivanja" cssClass="form-control" />
+                      
+                      <label class="margintop10" for="zastupnik">Zastupnik</label>
+                      <form:input path="zastupnik" cssClass="form-control" />
 
-                      <label class="margintop10" for="uloga">Uloga</label>
-                      <form:select path="uloga" cssClass="form-control text-center">
-                        <form:options items="${uloge}" itemLabel="nazivUloge" cssClass="form-control text-center" />
+                      <label class="margintop10" for="kulturnoPodrucje">Kulturno podrucje</label>
+                      <form:select path="kulturnoPodrucje" cssClass="form-control text-center">
+                        <form:options items="${podrucja}" itemLabel="nazivPodrucja" cssClass="form-control text-center" />
                       </form:select>
 
                       <label class="margintop10" for="submit"></label>
-                      <input type="submit" value="Sacuvaj korisnika" class="form-control btn-success margintop10 text-center">
+                      <input type="submit" value="Sacuvaj udruzenje" class="form-control btn-success margintop10 text-center">
                     </form:form>
                   </div>
                   
                   <div class="margintop10">
-                    <input type="button" value="Odustani" class="form-control btn-info text-center" onclick="window.location.href='${pageContext.request.contextPath}/administracija/korisnici'; return false;" />
+                    <input type="button" value="Odustani" class="form-control btn-info text-center" onclick="window.location.href='${pageContext.request.contextPath}/administracija/udruzenja'; return false;" />
                   </div>
 
                 </div>
