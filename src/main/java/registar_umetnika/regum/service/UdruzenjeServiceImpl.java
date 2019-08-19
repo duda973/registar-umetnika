@@ -6,9 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import registar_umetnika.regum.dao.UdruzenjeDAO;
+import registar_umetnika.regum.dao.interfaces.UdruzenjeDAO;
 import registar_umetnika.regum.entity.KulturnoPodrucje;
 import registar_umetnika.regum.entity.Udruzenje;
+import registar_umetnika.regum.service.interfaces.UdruzenjeService;
 
 @Service
 public class UdruzenjeServiceImpl implements UdruzenjeService {
@@ -24,18 +25,6 @@ public class UdruzenjeServiceImpl implements UdruzenjeService {
 
 	@Override
 	@Transactional
-	public List<KulturnoPodrucje> vratiKulturnaPodrucja() {
-		return udruzenjeDAO.vratiKulturnaPodrucja();
-	}
-
-	@Override
-	@Transactional
-	public KulturnoPodrucje vratiKulturnoPodrucje(String nazivPodrucja) {
-		return udruzenjeDAO.vratiKulturnoPodrucje(nazivPodrucja);
-	}
-
-	@Override
-	@Transactional
 	public void sacuvajUdruzenje(Udruzenje novoUdruzenje) {
 		udruzenjeDAO.sacuvajUdruzenje(novoUdruzenje);
 	}
@@ -46,5 +35,29 @@ public class UdruzenjeServiceImpl implements UdruzenjeService {
 		return udruzenjeDAO.vratiPodrucjePoIDu(valueOf);
 	}
 
+	@Override
+	@Transactional
+	public void obrisiUdruzenje(int id) {
+		udruzenjeDAO.obrisiUdruzenje(id);
+	}
+
+	@Override
+	@Transactional
+	public Udruzenje vratiUdruzenje(int id) {
+		return udruzenjeDAO.vratiUdruzenje(id);
+	}
+
+	@Override
+	@Transactional
+	public Udruzenje vratiUdruzenje(String text) {
+		return udruzenjeDAO.vratiUdruzenje(text);
+	}
+
+	@Override
+	@Transactional
+	public List<Udruzenje> vratiUdruzenja(int podrucjeId) {
+		return udruzenjeDAO.vratiUdruzenja(podrucjeId);
+	}
+	
 	
 }

@@ -58,8 +58,8 @@
 										href="${pageContext.request.contextPath}/administracija/umetnici">
 											Umetnici </a></td>
 									<td><a
-										href="${pageContext.request.contextPath}/administracija/udruzenja">
-											Cetvrta opcija </a></td>
+										href="${pageContext.request.contextPath}/administracija/kulturna-podrucja">
+											Kulturna podrucja </a></td>
 								<tr>
 							</tbody>
 						</table>

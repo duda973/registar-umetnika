@@ -45,15 +45,8 @@
 								<tr>
 									<th class='text-center'>Maticni broj</th>
 									<th class='text-center'>PIB</th>
+									<th class='text-center'>Registarski broj</th>
 									<th class='text-center'>Naziv</th>
-									<th class='text-center'>Sediste</th>
-									<th class='text-center'>Adresa</th>
-									<th class='text-center'>Datum osnivanja</th>
-									<th class='text-center'>Podrucje</th>
-									<th class='text-center'>Zastupnik</th>
-									<sec:authorize access="hasAuthority('Superadmin')">
-										<th class='text-center'>Opcije</th>
-									</sec:authorize>
 								</tr>
 							</thead>
 							<tbody>
@@ -66,25 +59,16 @@
 										<c:param name="udruzenjeID"
 											value="${trenutnoUdruzenje.udruzenjeId}" />
 									</c:url>
-									<c:url var="clanoviLink" value="/administracija/udruzenja/clanovi">
+									<c:url var="udruzenjeLink" value="/administracija/udruzenja/prikaz">
 										<c:param name="udruzenjeID"
 											value="${trenutnoUdruzenje.udruzenjeId}" />
 									</c:url>
 
-									<tr onclick="window.location='${clanoviLink}';">
+									<tr onclick="window.location='${udruzenjeLink}';">
 										<td>${trenutnoUdruzenje.maticniBroj}</td>
 										<td>${trenutnoUdruzenje.pib}</td>
+										<td>${trenutnoUdruzenje.registarskiBroj}</td>
 										<td>${trenutnoUdruzenje.naziv}</td>
-										<td>${trenutnoUdruzenje.sediste}</td>
-										<td>${trenutnoUdruzenje.adresa}</td>
-										<td>${trenutnoUdruzenje.datumOsnivanja}</td>
-										<td>${trenutnoUdruzenje.kulturnoPodrucje.nazivPodrucja}</td>
-										<td>${trenutnoUdruzenje.zastupnik}</td>
-										<sec:authorize access="hasAuthority('Superadmin')">
-											<td><a href="${izmeniLink}">Izmeni</a> | <a
-												href="${obrisiLink}">Obrisi</a>
-												</td>
-										</sec:authorize>
 									<tr>
 								</c:forEach>
 							</tbody>
@@ -99,7 +83,7 @@
 								/>
 						</div>
 						<div class="margintop10">
-							<input type="button" value="Svi korisnici"
+							<input type="button" value="Sva udruzenja"
 								class="form-control btn-info text-center"
 								onclick="window.location.href='${pageContext.request.contextPath}/administracija/udruzenja'; return false;" />
 						</div>

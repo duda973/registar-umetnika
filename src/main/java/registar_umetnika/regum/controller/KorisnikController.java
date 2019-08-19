@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import registar_umetnika.regum.entity.Korisnik;
 import registar_umetnika.regum.entity.Uloga;
-import registar_umetnika.regum.service.KorisnikService;
+import registar_umetnika.regum.service.interfaces.KorisnikService;
+import registar_umetnika.regum.util.KorisnikEditor;
 
 @Controller
 @RequestMapping("/administracija")
@@ -21,6 +24,9 @@ public class KorisnikController {
 	
 	@Autowired
 	private KorisnikService korisnikService;
+	
+	@Autowired
+	private KorisnikEditor korisnikEditor;
 	
 	@RequestMapping("/korisnici")
 	public String prikaziKorisnike(Model theModel) {
@@ -44,12 +50,7 @@ public class KorisnikController {
 	
 	@PostMapping("/korisnici/sacuvaj-korisnika")
 	public String sacuvajKorisnika(@ModelAttribute("korisnik") Korisnik noviKorisnik) {
-		
-		System.out.println(noviKorisnik.getUloga().getUlogaId() + " " + noviKorisnik.getUloga());
-		Uloga u = korisnikService.vratiUlogu(noviKorisnik.getUloga().getNazivUloge());
-		noviKorisnik.setUloga(u);
 		korisnikService.sacuvajKorisnika(noviKorisnik);
-		
 		return "redirect:/administracija/korisnici";
 	}
 	
@@ -88,5 +89,10 @@ public class KorisnikController {
 		korisnikService.obrisiKorisnika(id);
 		
 		return "redirect:/administracija/korisnici";
+	}
+	
+	@InitBinder
+	public void initBinder(WebDataBinder binder) {
+		binder.registerCustomEditor(Uloga.class, this.korisnikEditor);
 	}
 }

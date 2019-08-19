@@ -9,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -38,17 +37,33 @@ public class Korisnik {
 	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
 	@JoinColumn(name = "ulogaid")
 	private Uloga uloga;
-
+	
+	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
+	@JoinColumn(name = "organid")
+	private Organ organ;
+	
 	public Korisnik() {
 	}
 
-	// konstruktor bez id-a
 	public Korisnik(String ime, String prezime, String username, String password, String email) {
 		this.ime = ime;
 		this.prezime = prezime;
 		this.username = username;
 		this.password = password;
 		this.email = email;
+	}
+
+	public Korisnik(int korisnikId, String ime, String prezime, String username, String password, String email,
+			Uloga uloga, Organ organ) {
+		super();
+		this.korisnikId = korisnikId;
+		this.ime = ime;
+		this.prezime = prezime;
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.uloga = uloga;
+		this.organ = organ;
 	}
 
 	public int getKorisnikId() {

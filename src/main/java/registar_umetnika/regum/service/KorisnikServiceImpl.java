@@ -6,9 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import registar_umetnika.regum.dao.KorisnikDAO;
+import registar_umetnika.regum.dao.interfaces.KorisnikDAO;
 import registar_umetnika.regum.entity.Korisnik;
 import registar_umetnika.regum.entity.Uloga;
+import registar_umetnika.regum.service.interfaces.KorisnikService;
 
 @Service
 public class KorisnikServiceImpl implements KorisnikService {

@@ -2,6 +2,7 @@ package registar_umetnika.regum.dao;
 
 import java.util.List;
 
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 
+import registar_umetnika.regum.dao.interfaces.UdruzenjeDAO;
 import registar_umetnika.regum.entity.KulturnoPodrucje;
 import registar_umetnika.regum.entity.Udruzenje;
 import registar_umetnika.regum.entity.Uloga;
@@ -26,24 +28,6 @@ public class UdruzenjeDAOImpl implements UdruzenjeDAO {
 	}
 
 	@Override
-	public List<KulturnoPodrucje> vratiKulturnaPodrucja() {
-		Session currentSession = sessionFactory.getCurrentSession();
-		Query theQuery = currentSession.createQuery("from KulturnoPodrucje", KulturnoPodrucje.class);
-		return theQuery.getResultList();
-	}
-
-	@Override
-	public KulturnoPodrucje vratiKulturnoPodrucje(String nazivPodrucja) {
-		Session currentSession = sessionFactory.getCurrentSession();
-		
-		Query query = currentSession.createQuery("from KulturnoPodrucje where nazivPodrucja = :naziv");
-		query.setParameter("naziv", nazivPodrucja);
-		List<KulturnoPodrucje> podrucja = query.getResultList();
-		
-		return podrucja.get(0);
-	}
-
-	@Override
 	public void sacuvajUdruzenje(Udruzenje novoUdruzenje) {
 		Session currentSession = sessionFactory.getCurrentSession();
 		currentSession.saveOrUpdate(novoUdruzenje);		
@@ -58,6 +42,53 @@ public class UdruzenjeDAOImpl implements UdruzenjeDAO {
 		List<KulturnoPodrucje> podrucja = query.getResultList();
 		
 		return podrucja.get(0);
+	}
+
+	@Override
+	public void obrisiUdruzenje(int id) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		Query query = currentSession.createQuery("delete Udruzenje where udruzenjeId = :id");
+		query.setParameter("id", id);
+		
+		query.executeUpdate();
+	}
+
+	@Override
+	public Udruzenje vratiUdruzenje(int id) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		Query query = currentSession.createQuery("from Udruzenje where udruzenjeId = :id");
+		query.setParameter("id", id);
+		
+		return (Udruzenje) query.getResultList().get(0);
+	}
+
+	@Override
+	public Udruzenje vratiUdruzenje(String text) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		Query query = currentSession.createQuery("from Udruzenje where naziv = :nazivUdruzenja");
+		query.setParameter("nazivUdruzenja", text);
+		
+		return (Udruzenje) query.getResultList().get(0);
+	}
+
+	@Override
+	public List<Udruzenje> vratiUdruzenja(int podrucjeId) {
+		Session session = sessionFactory.getCurrentSession();
+		String sql = "SELECT u.udruzenjeid, u.maticnibroj, u.pib, u.naziv, u.sediste, u.adresa, u.datumosnivanja, u.zastupnik, u.registarskibroj " + 
+				"FROM udruzenje as u " + 
+				"JOIN pripadnostudruzenja as pu " + 
+				"ON u.udruzenjeid = pu.udruzenjeid " + 
+				"WHERE pu.kulturnopodrucjeid = " + podrucjeId + ";";
+		
+		SQLQuery query = session.createSQLQuery(sql);
+		query.addEntity(Udruzenje.class);
+		
+		List lista = query.list();
+		
+		return lista;
 	}
 
 }

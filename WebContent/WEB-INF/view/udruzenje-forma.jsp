@@ -30,10 +30,10 @@
                     <h1>
 						<i class="fa fa-book small-icons bk-color-brown"></i>Udruzenje forma
 					</h1>
-
-                    <form:form action="sacuvaj-udruzenje" modelAttribute="udruzenje" method="POST">
+	
+                    <form:form action="odaberi-kulturna-podrucja" modelAttribute="udruzenje" method="POST">
                       <form:hidden path="udruzenjeId" />
-
+					
                       <label class="margintop10" for="maticniBroj">Maticni broj</label>
                       <form:input path="maticniBroj" cssClass="form-control" />
 
@@ -54,14 +54,12 @@
                       
                       <label class="margintop10" for="zastupnik">Zastupnik</label>
                       <form:input path="zastupnik" cssClass="form-control" />
-
-                      <label class="margintop10" for="kulturnoPodrucje">Kulturno podrucje</label>
-                      <form:select path="kulturnoPodrucje" cssClass="form-control text-center">
-                        <form:options items="${podrucja}" itemLabel="nazivPodrucja" cssClass="form-control text-center" />
-                      </form:select>
+                      
+                      <label class="margintop10" for="registarskibroj">Registarski broj</label>
+                      <form:input path="registarskiBroj" cssClass="form-control" />                      
 
                       <label class="margintop10" for="submit"></label>
-                      <input type="submit" value="Sacuvaj udruzenje" class="form-control btn-success margintop10 text-center">
+                      <input type="submit" name="pocni" value="Nastavi dalje" class="form-control btn-success margintop10 text-center">
                     </form:form>
                   </div>
                   

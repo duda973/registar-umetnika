@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 
+import registar_umetnika.regum.dao.interfaces.KorisnikDAO;
 import registar_umetnika.regum.entity.Korisnik;
 import registar_umetnika.regum.entity.Uloga;
 
