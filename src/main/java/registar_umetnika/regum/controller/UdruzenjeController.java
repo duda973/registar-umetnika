@@ -83,6 +83,22 @@ public class UdruzenjeController {
 		return "redirect:/administracija/udruzenja";
 	}
 	
+	@GetMapping("/udruzenja/izmeni-udruzenje")
+	public String izmeniUdruzenje(@RequestParam("udruzenjeID") int id,
+			Model theModel) {
+		Udruzenje u = udruzenjeService.vratiUdruzenje(id);
+		
+		theModel.addAttribute("udruzenje", u);
+		
+		return "udruzenje-forma-izmena";
+	}
+	
+	@PostMapping("/udruzenja/sacuvaj-izmene")
+	public String sacuvajIzmene(@ModelAttribute(name="udruzenje") Udruzenje u) {
+		udruzenjeService.sacuvajUdruzenje(u);
+		return "redirect:/administracija/udruzenja";
+	}
+	
 	@GetMapping("/udruzenja/clanovi")
 	public String clanoviUdruzenja(@RequestParam("udruzenjeID") int id, Model theModel) {
 		

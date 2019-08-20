@@ -42,7 +42,13 @@
             <i class="fa fa-users color-brown"></i>
             Logout</a>
         </li>
+		<li>
+          <a href="${pageContext.request.contextPath}/profil">
+            <i class="fa fa-users color-brown"></i>
+            ${sessionScope.user}</a>
+        </li>
 		</sec:authorize>
+		
       </ul>
     </div>
   </div>

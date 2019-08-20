@@ -2,6 +2,7 @@ package registar_umetnika.regum.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -37,12 +38,12 @@ public class LoginController {
 	}
 	
 	@RequestMapping("/pocetna")
-	public String pocetna() {
+	public String pocetna(HttpSession session) {
+		session.setAttribute("user", getPrincipal());
 		return "pocetna";
 	}
 	
-	
-	private String getPrincipal(){
+	public static String getPrincipal(){
 		String userName = null;
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 

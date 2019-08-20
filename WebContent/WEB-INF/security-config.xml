@@ -32,7 +32,6 @@
 		<b:property name="password" value="" />
 	</b:bean>
 
-
 	<authentication-manager>
 		<authentication-provider>
 			<password-encoder ref="encoder" />

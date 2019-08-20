@@ -94,7 +94,7 @@
 							<div class="col-lg-3">
 								<input type="button" value="Izmeni podatke"
 									class="form-control btn-info text-center"
-									onclick="window.location.href='${pageContext.request.contextPath}/administracija/udruzenja'; return false;" />
+									onclick="window.location.href='${pageContext.request.contextPath}/administracija/udruzenja/izmeni-udruzenje?udruzenjeID=${udruzenje.udruzenjeId}'; return false;" />
 							</div>
 							<div class="col-lg-3">
 								<input type="button" value="Obrisi udruzenje"
