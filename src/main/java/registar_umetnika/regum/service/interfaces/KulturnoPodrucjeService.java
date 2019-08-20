@@ -12,4 +12,6 @@ public interface KulturnoPodrucjeService {
 
 	void obrisiKulturnoPodrucje(int podrucjeId);
 
+	void dodajNovoKulturnoPodrucje(KulturnoPodrucje kp);
+
 }

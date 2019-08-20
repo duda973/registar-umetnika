@@ -46,6 +46,7 @@
 								<tr>
 									<th class='text-center'>Naziv podrucja</th>
 									<th class='text-center'>Umetnicko</th>
+									<th class='text-center'>Opcije</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -64,6 +65,7 @@
 									<tr onclick="window.location='${udruzenjaLink}';">
 										<td>${trenutnoPodrucje.nazivPodrucja}</td>
 										<td>${trenutnoPodrucje.umetnicko}</td>
+										<td><a href="${obrisiLink}">Obrisi</a></td>
 									<tr>
 								</c:forEach>
 							</tbody>

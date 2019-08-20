@@ -12,4 +12,6 @@ public interface KulturnoPodrucjeDAO {
 
 	void obrisiKulturnoPodrucje(int podrucjeId);
 
+	void dodajNovoKulturnoPodrucje(KulturnoPodrucje kp);
+
 }

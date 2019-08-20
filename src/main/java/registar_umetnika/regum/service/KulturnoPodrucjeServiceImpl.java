@@ -33,4 +33,10 @@ public class KulturnoPodrucjeServiceImpl implements KulturnoPodrucjeService {
 	public void obrisiKulturnoPodrucje(int podrucjeId) {
 		kulturnoPodrucjeDAO.obrisiKulturnoPodrucje(podrucjeId);
 	}
+
+	@Override
+	@Transactional
+	public void dodajNovoKulturnoPodrucje(KulturnoPodrucje kp) {
+		kulturnoPodrucjeDAO.dodajNovoKulturnoPodrucje(kp);
+	}
 }

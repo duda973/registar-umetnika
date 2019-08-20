@@ -44,5 +44,11 @@ public class KulturnoPodrucjeDAOImpl implements KulturnoPodrucjeDAO {
 		
 		query.executeUpdate();
 	}
+
+	@Override
+	public void dodajNovoKulturnoPodrucje(KulturnoPodrucje kp) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		currentSession.saveOrUpdate(kp);
+	}
 	
 }

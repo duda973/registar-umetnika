@@ -63,6 +63,22 @@ public class KulturnaPodrucjaController {
 		return "lista-udruzenja";
 	}
 	
+	@RequestMapping("/kulturna-podrucja/dodaj-novo-kulturno-podrucje")
+	public String dodajNovoKulturnoPodrucje(Model theModel) {
+		KulturnoPodrucje kp = new KulturnoPodrucje();
+		theModel.addAttribute("podrucje", kp);
+		
+		return "podrucje-forma";
+	}
+	
+	@PostMapping("/kulturna-podrucja/sacuvaj-kulturno-podrucje")
+	public String sacuvajKulturnoPodrucje(Model theModel, @ModelAttribute("podrucje") KulturnoPodrucje kp) {
+		
+		kulturnoPodrucjeService.dodajNovoKulturnoPodrucje(kp);
+		
+		return "redirect:/administracija/kulturna-podrucja";
+	}
+	
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
 		binder.registerCustomEditor(KulturnoPodrucje.class, this.kulturnoPodrucjeEditor);
