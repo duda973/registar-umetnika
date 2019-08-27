@@ -24,8 +24,8 @@ public class KulturnoPodrucjeServiceImpl implements KulturnoPodrucjeService {
 
 	@Override
 	@Transactional
-	public KulturnoPodrucje vratiKulturnoPodrucje(String nazivPodrucja) {
-		return kulturnoPodrucjeDAO.vratiKulturnoPodrucje(nazivPodrucja);
+	public KulturnoPodrucje vratiKulturnoPodrucje(Integer valueOf) {
+		return kulturnoPodrucjeDAO.vratiKulturnoPodrucje(valueOf);
 	}
 
 	@Override

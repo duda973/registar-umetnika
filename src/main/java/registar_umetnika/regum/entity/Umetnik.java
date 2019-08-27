@@ -35,7 +35,7 @@ public class Umetnik implements Serializable{
 	private String imeRoditelja;
 	
 	@Column(name = "jmbg")
-	private int jmbg;
+	private String jmbg;
 	
 	@Column(name = "datumrodjenja")
 	private Date datumRodjenja;
@@ -103,7 +103,7 @@ public class Umetnik implements Serializable{
 	@OneToMany(mappedBy = "umetnik", cascade = CascadeType.ALL)
 	private Set<Clanstvo> clanstva = new HashSet<>();
 	
-	public Umetnik(int umetnikId, String prezime, String ime, String imeRoditelja, int jmbg, Date datumRodjenja,
+	public Umetnik(int umetnikId, String prezime, String ime, String imeRoditelja, String jmbg, Date datumRodjenja,
 			String mestoRodjenja, String opstinaRodjenja, String drzavljanstvo, String prebivaliste, String adresa,
 			String brojTelefona, String delatnost, Date datumPocetkaObavljanjaDelatnosti, String brojAkta,
 			String statusZaposlenja, String mestoZaposlenja, Date datumPrestankaObavljanjaDelatnosti,
@@ -135,7 +135,7 @@ public class Umetnik implements Serializable{
 		this.korisnik = korisnik;
 	}
 
-	public Umetnik(String prezime, String ime, String imeRoditelja, int jmbg, Date datumRodjenja, String mestoRodjenja,
+	public Umetnik(String prezime, String ime, String imeRoditelja, String jmbg, Date datumRodjenja, String mestoRodjenja,
 			String opstinaRodjenja, String drzavljanstvo, String prebivaliste, String adresa, String brojTelefona,
 			String delatnost, Date datumPocetkaObavljanjaDelatnosti, String brojAkta, String statusZaposlenja,
 			String mestoZaposlenja, Date datumPrestankaObavljanjaDelatnosti, int ispunjenostUslova, Date datumUpisa,
@@ -165,7 +165,7 @@ public class Umetnik implements Serializable{
 		this.korisnik = korisnik;
 	}
 
-	public Umetnik(String prezime, String ime, String imeRoditelja, int jmbg, Date datumRodjenja, String mestoRodjenja,
+	public Umetnik(String prezime, String ime, String imeRoditelja, String jmbg, Date datumRodjenja, String mestoRodjenja,
 			String opstinaRodjenja, String drzavljanstvo, String prebivaliste, String adresa, String brojTelefona,
 			String delatnost, Date datumPocetkaObavljanjaDelatnosti, String brojAkta, String statusZaposlenja,
 			String mestoZaposlenja, Date datumPrestankaObavljanjaDelatnosti, int ispunjenostUslova, Date datumUpisa,
@@ -229,11 +229,11 @@ public class Umetnik implements Serializable{
 		this.imeRoditelja = imeRoditelja;
 	}
 
-	public int getJmbg() {
+	public String getJmbg() {
 		return jmbg;
 	}
 
-	public void setJmbg(int jmbg) {
+	public void setJmbg(String jmbg) {
 		this.jmbg = jmbg;
 	}
 

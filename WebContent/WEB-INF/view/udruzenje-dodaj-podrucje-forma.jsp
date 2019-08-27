@@ -35,14 +35,14 @@
                       
                       <label class="margintop10">Selektuj kulturno podrucje</label>
 					  <form:select path="kulturnoPodrucje" cssClass="form-control text-center">
-                        <form:options items="${podrucja}" itemLabel="nazivPodrucja" cssClass="form-control text-center" />
+                        <form:options items="${podrucja}" itemLabel="nazivPodrucja" itemValue="podrucjeId" cssClass="form-control text-center" />
                       </form:select>
                       					  
                       <label class="margintop10" for="datumUnosa">Datum unosa</label>
                       <form:input type="date" path="datumUnosa" cssClass="form-control" />                      
 
                       <label class="margintop10" for="submit"></label>
-                      <input type="submit" name="sacuvaj"   value="Sacuvaj novo udruzenje" class="form-control btn-success margintop10 text-center">
+                      <input type="submit" name="sacuvaj"   value="Sacuvaj dodato kulturno podrucje" class="form-control btn-success margintop10 text-center">
                       <div class="margintop10">
 	                    <input type="button" value="Odustani" class="form-control btn-info text-center" onclick="window.location.href='${pageContext.request.contextPath}/administracija/udruzenja'; return false;" />
 	                  </div>

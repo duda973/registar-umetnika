@@ -12,6 +12,6 @@ public interface KorisnikService {
 	public List<Uloga> vratiUloge();
 	public void obrisiUlogu(int id);
 	public List<Korisnik> vratiKorisnike(int idUlogeZaPrikaz);
-	public Uloga vratiUlogu(String nazivUloge);
+	public Uloga vratiUlogu(Integer integer);
 	public void obrisiKorisnika(int id);
 }

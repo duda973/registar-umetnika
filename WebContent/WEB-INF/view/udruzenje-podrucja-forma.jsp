@@ -34,7 +34,7 @@
                     <form:form action="odaberi-kulturna-podrucja" modelAttribute="novaPripadnost" method="POST">
                       <label class="margintop10">Selektuj kulturno podrucje</label>
 					  <form:select path="kulturnoPodrucje" cssClass="form-control text-center">
-                        <form:options items="${podrucja}" itemLabel="nazivPodrucja" cssClass="form-control text-center" />
+                        <form:options items="${podrucja}" itemLabel="nazivPodrucja" itemValue="podrucjeId" cssClass="form-control text-center" />
                       </form:select>
                       					  
                       <label class="margintop10" for="datumUnosa">Datum unosa</label>

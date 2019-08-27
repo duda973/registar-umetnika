@@ -65,14 +65,13 @@ public class KorisnikDAOImpl implements KorisnikDAO {
 	}
 
 	@Override
-	public Uloga vratiUlogu(String nazivUloge) {
+	public Uloga vratiUlogu(Integer valueOf) {
 		Session currentSession = sessionFactory.getCurrentSession();
 		
-		Query query = currentSession.createQuery("from Uloga where nazivUloge = :nazivUloge");
-		query.setParameter("nazivUloge", nazivUloge);
-		List<Uloga> uloge = query.getResultList();
-		
-		return uloge.get(0);
+		Query query = currentSession.createQuery("from Uloga where ulogaId = :id");
+		query.setParameter("id", valueOf);
+
+		return (Uloga) query.getResultList().get(0);
 	}
 
 	@Override

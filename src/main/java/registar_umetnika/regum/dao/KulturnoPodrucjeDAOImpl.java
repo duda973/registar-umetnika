@@ -25,14 +25,11 @@ public class KulturnoPodrucjeDAOImpl implements KulturnoPodrucjeDAO {
 	}
 	
 	@Override
-	public KulturnoPodrucje vratiKulturnoPodrucje(String nazivPodrucja) {
+	public KulturnoPodrucje vratiKulturnoPodrucje(Integer valueOf) {
 		Session currentSession = sessionFactory.getCurrentSession();
-		
-		Query query = currentSession.createQuery("from KulturnoPodrucje where nazivPodrucja = :naziv");
-		query.setParameter("naziv", nazivPodrucja);
-		List<KulturnoPodrucje> podrucja = query.getResultList();
-		
-		return podrucja.get(0);
+		Query query = currentSession.createQuery("from KulturnoPodrucje where podrucjeId = :id");
+		query.setParameter("id", valueOf);
+		return (KulturnoPodrucje) query.getResultList().get(0);
 	}
 
 	@Override

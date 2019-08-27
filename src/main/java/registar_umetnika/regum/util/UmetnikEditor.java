@@ -5,16 +5,16 @@ import java.beans.PropertyEditorSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import registar_umetnika.regum.entity.Uloga;
-import registar_umetnika.regum.service.interfaces.KorisnikService;
+import registar_umetnika.regum.entity.Umetnik;
+import registar_umetnika.regum.service.interfaces.UmetnikService;
 
 @Component
-public class KorisnikEditor extends PropertyEditorSupport {
+public class UmetnikEditor extends PropertyEditorSupport {
 	@Autowired
-	private KorisnikService korisnikService;
+	private UmetnikService umetnikService;
 	
 	public void setAsText(String text) {
-		Uloga u = this.korisnikService.vratiUlogu(Integer.valueOf(text));
+		Umetnik u = this.umetnikService.vratiUmetnika(Integer.valueOf(text));
 		this.setValue(u);
 	}
 }

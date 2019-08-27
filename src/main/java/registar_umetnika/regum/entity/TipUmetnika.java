@@ -20,14 +20,12 @@ public class TipUmetnika {
 	
 	public TipUmetnika() {
 	}
-
-	public TipUmetnika(String nazivTipa) {
-		super();
-		this.nazivTipa = nazivTipa;
+	
+	public TipUmetnika(int id) {
+		this.tipUmetnikaId = id;
 	}
-
+	
 	public TipUmetnika(int tipUmetnikaId, String nazivTipa) {
-		super();
 		this.tipUmetnikaId = tipUmetnikaId;
 		this.nazivTipa = nazivTipa;
 	}
@@ -50,7 +48,7 @@ public class TipUmetnika {
 
 	@Override
 	public String toString() {
-		return "TipUmetnika [tipUmetnikaId=" + tipUmetnikaId + ", nazivTipa=" + nazivTipa + "]";
+		return String.valueOf(this.tipUmetnikaId);
 	}
 	
 	

@@ -10,11 +10,12 @@ import registar_umetnika.regum.service.interfaces.UdruzenjeService;
 
 @Component
 public class UdruzenjeEditor extends PropertyEditorSupport {
+	
 	@Autowired
 	private UdruzenjeService udruzenjeService;
 	
 	public void setAsText(String text) {
-		Udruzenje u = this.udruzenjeService.vratiUdruzenje(text);
+		Udruzenje u = this.udruzenjeService.vratiUdruzenje(Integer.valueOf(text));
 		this.setValue(u);
 	}
 }

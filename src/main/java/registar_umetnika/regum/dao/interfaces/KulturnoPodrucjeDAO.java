@@ -8,7 +8,7 @@ public interface KulturnoPodrucjeDAO {
 
 	List<KulturnoPodrucje> vratiKulturnaPodrucja();
 
-	KulturnoPodrucje vratiKulturnoPodrucje(String nazivPodrucja);
+	KulturnoPodrucje vratiKulturnoPodrucje(Integer valueOf);
 
 	void obrisiKulturnoPodrucje(int podrucjeId);
 

@@ -1,6 +1,5 @@
 package registar_umetnika.regum.controller;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,7 +55,7 @@ public class UdruzenjeController {
 		List<KulturnoPodrucje> podrucjaKojimaPripada = new ArrayList<KulturnoPodrucje>();
 		List<PripadnostUdruzenja> pripadnosti = pripadnostUdruzenjaService.vratiPripadnostiPoUdruzenju(id);
 		for(PripadnostUdruzenja pu : pripadnosti) {
-			KulturnoPodrucje kp = kulturnoPodrucjeService.vratiKulturnoPodrucje(pu.getKulturnoPodrucje().getNazivPodrucja());
+			KulturnoPodrucje kp = kulturnoPodrucjeService.vratiKulturnoPodrucje(pu.getKulturnoPodrucje().getPodrucjeId());
 			podrucjaKojimaPripada.add(kp);
 		}
 		

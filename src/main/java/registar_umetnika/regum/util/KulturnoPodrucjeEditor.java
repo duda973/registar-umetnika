@@ -14,7 +14,7 @@ public class KulturnoPodrucjeEditor extends PropertyEditorSupport {
 	private KulturnoPodrucjeService kulturnoPodrucjeService;
 	
 	public void setAsText(String text) {
-		KulturnoPodrucje kp = this.kulturnoPodrucjeService.vratiKulturnoPodrucje(text);
+		KulturnoPodrucje kp = this.kulturnoPodrucjeService.vratiKulturnoPodrucje(Integer.valueOf(text));
 		this.setValue(kp);
 	}
 }

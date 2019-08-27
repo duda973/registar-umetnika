@@ -8,7 +8,7 @@ public interface KulturnoPodrucjeService {
 
 	List<KulturnoPodrucje> vratiKulturnaPodrucja();
 
-	KulturnoPodrucje vratiKulturnoPodrucje(String nazivPodrucja);
+	KulturnoPodrucje vratiKulturnoPodrucje(Integer integer);
 
 	void obrisiKulturnoPodrucje(int podrucjeId);
 

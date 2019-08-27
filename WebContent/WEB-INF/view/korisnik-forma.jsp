@@ -39,8 +39,8 @@
                       <label class="margintop10" for="prezime">Prezime</label>
                       <form:input path="prezime" cssClass="form-control" />
 
-                      <label class="margintop10" for="prezime">Username</label>
-                      <form:input path="username" cssClass="form-control" />
+                      <label class="margintop10" for="username">Username</label>
+                      <form:input path="username" type="username" cssClass="form-control" />
 
                       <label class="margintop10" for="password">Password</label>
                       <form:password path="password" cssClass="form-control" />
@@ -50,7 +50,7 @@
 
                       <label class="margintop10" for="uloga">Uloga</label>
                       <form:select path="uloga" cssClass="form-control text-center">
-                        <form:options items="${uloge}" itemLabel="nazivUloge" cssClass="form-control text-center" />
+                        <form:options items="${uloge}" itemLabel="nazivUloge" itemValue="ulogaId" class="form-control text-center" />
                       </form:select>
 
                       <label class="margintop10" for="submit"></label>

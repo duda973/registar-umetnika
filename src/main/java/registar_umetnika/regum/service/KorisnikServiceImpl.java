@@ -55,8 +55,8 @@ public class KorisnikServiceImpl implements KorisnikService {
 
 	@Override
 	@Transactional
-	public Uloga vratiUlogu(String nazivUloge) {
-		return korisnikDAO.vratiUlogu(nazivUloge);
+	public Uloga vratiUlogu(Integer valueOf) {
+		return korisnikDAO.vratiUlogu(valueOf);
 	}
 
 	@Override

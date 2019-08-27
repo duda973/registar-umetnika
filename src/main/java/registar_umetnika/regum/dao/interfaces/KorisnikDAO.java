@@ -19,7 +19,7 @@ public interface KorisnikDAO {
 
 	public List<Korisnik> vratiKorisnike(int idUlogeZaPrikaz);
 
-	public Uloga vratiUlogu(String nazivUloge);
+	public Uloga vratiUlogu(Integer valueOf);
 
 	public void obrisiKorisnika(int id);
 }
