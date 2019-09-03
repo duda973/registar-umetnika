@@ -12,8 +12,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Entity
 @Table(name = "uplata")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Uplata {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,6 +46,4 @@ public class Uplata {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="uplataorganid")
 	private Organ organ;
-	
-	
 }

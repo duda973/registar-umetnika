@@ -73,7 +73,7 @@
 										<td>${trenutniKorisnik.prezime}</td>
 										<td>${trenutniKorisnik.username}</td>
 										<sec:authorize access="hasAuthority('Superadmin')">
-											<td style='width: 20%;'>${trenutniKorisnik.password}</td>
+											<td style='width: 20%;'>********</td>
 										</sec:authorize>
 										<td>${trenutniKorisnik.email}</td>
 										<td>${trenutniKorisnik.uloga.nazivUloge}</td>

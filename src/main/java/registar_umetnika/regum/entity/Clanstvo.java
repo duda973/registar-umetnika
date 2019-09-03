@@ -2,6 +2,10 @@ package registar_umetnika.regum.entity;
 
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 import java.sql.Date;
 
@@ -14,6 +18,9 @@ import javax.persistence.ManyToOne;
 
 @Entity
 @Table(name = "clanstvo")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Clanstvo implements Serializable{
 	@Id
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -27,43 +34,4 @@ public class Clanstvo implements Serializable{
 
 	@Column(name = "datum")
 	private Date datum;
-	
-	public Clanstvo() {
-	}
-
-	public Clanstvo(Umetnik umetnik, Udruzenje udruzenje, Date datum) {
-		this.umetnik = umetnik;
-		this.udruzenje = udruzenje;
-		this.datum = datum;
-	}
-
-	public Umetnik getUmetnik() {
-		return umetnik;
-	}
-
-	public void setUmetnik(Umetnik umetnik) {
-		this.umetnik = umetnik;
-	}
-
-	public Udruzenje getUdruzenje() {
-		return udruzenje;
-	}
-
-	public void setUdruzenje(Udruzenje udruzenje) {
-		this.udruzenje = udruzenje;
-	}
-
-	public Date getDatum() {
-		return datum;
-	}
-
-	public void setDatum(Date datum) {
-		this.datum = datum;
-	}
-
-	@Override
-	public String toString() {
-		return "Clanstvo [umetnik=" + umetnik + ", udruzenje=" + udruzenje + ", datum=" + datum + "]";
-	}
-	
 }

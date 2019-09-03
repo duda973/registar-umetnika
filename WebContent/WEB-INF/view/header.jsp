@@ -15,6 +15,8 @@
         <span class="icon-bar"></span>
       </button>
     </div>
+    
+    
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav flot-nav">
         <li>

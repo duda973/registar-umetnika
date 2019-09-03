@@ -7,8 +7,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Entity
 @Table(name = "tiporgana")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class TipOrgana {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,40 +25,4 @@ public class TipOrgana {
 	@Column(name = "naziv")
 	private String naziv;
 
-	public TipOrgana() {
-	}
-	
-	public TipOrgana(String naziv) {
-		super();
-		this.naziv = naziv;
-	}
-
-	public TipOrgana(int tipOrganaId, String naziv) {
-		super();
-		this.tipOrganaId = tipOrganaId;
-		this.naziv = naziv;
-	}
-
-	public int getTipOrganaId() {
-		return tipOrganaId;
-	}
-
-	public void setTipOrganaId(int tipOrganaId) {
-		this.tipOrganaId = tipOrganaId;
-	}
-
-	public String getNaziv() {
-		return naziv;
-	}
-
-	public void setNaziv(String naziv) {
-		this.naziv = naziv;
-	}
-
-	@Override
-	public String toString() {
-		return "TipOrgana [tipOrganaId=" + tipOrganaId + ", naziv=" + naziv + "]";
-	}
-	
-	
 }

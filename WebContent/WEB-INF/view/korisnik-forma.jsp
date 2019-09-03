@@ -27,8 +27,7 @@
               <div class="row">
                 <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 ">
                   <div class="text-center">
-                    <h1>
-																<i class="fa fa-book small-icons bk-color-brown"></i>Korisnik forma</h1>
+                    <h1><i class="fa fa-book small-icons bk-color-brown"></i>Korisnik forma</h1>
 
                     <form:form action="sacuvaj-korisnika" modelAttribute="korisnik" method="POST">
                       <form:hidden path="korisnikId" />

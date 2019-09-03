@@ -225,11 +225,16 @@
 						</div>
 					</div>
 
-					<label class="margintop10" for="submit"></label>
-					<input type="submit" name="pocni" value="Potvrdi" class="form-control btn-primary btn-xl">
-
+					<div class="row">
+						<label class="margintop10" for="submit"></label>
+						<input type="submit" name="pocni" value="Potvrdi" class="form-control btn-primary btn-xl">
+					</div>
+					<div class="row">
+			            <input type="button" value="Odustani" class="form-control btn-info text-center" onclick="window.location.href='${pageContext.request.contextPath}/administracija/umetnici'; return false;" />
+					</div>
 				</form:form>
 			</div>
+			
 		</div>
 	</section>
 
