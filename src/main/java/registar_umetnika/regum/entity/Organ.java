@@ -16,6 +16,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -45,5 +47,6 @@ public class Organ {
 	private TipOrgana tipOrgana;
 
 	@OneToMany(mappedBy = "organ", cascade = CascadeType.ALL)
+	@JsonBackReference
 	private Set<Uplata> uplate = new HashSet<>();
 }

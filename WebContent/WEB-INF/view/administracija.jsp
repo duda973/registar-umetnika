@@ -4,83 +4,56 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
+
 <title>Registar samostalnih umetnika</title>
-<link href='http://fonts.googleapis.com/css?family=Open+Sans'
-	rel='stylesheet' type='text/css'>
-<link
-	href="${pageContext.request.contextPath}/resources/assets/css/bootstrap.min.css"
-	rel="stylesheet" />
-<link
-	href="${pageContext.request.contextPath}/resources/assets/css/font-awesome.min.css"
-	rel="stylesheet" />
-<link
-	href="${pageContext.request.contextPath}/resources/assets/css/prettyPhoto.css"
-	rel="stylesheet" />
-<link
-	href="${pageContext.request.contextPath}/resources/assets/css/style.css"
-	rel="stylesheet" />
+
+<%@ include file="import-header.jsp"%>
+	
 </head>
 
 <body>
 	<%@ include file="header.jsp"%>
 
-	<section id="about-section">
-		<div class="wrap-pad">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 ">
-					<div class="text-center">
-						<h1>
-							<i class="fa fa-book small-icons bk-color-blue"></i>
-							Administracija aplikacije
-						</h1>
+	<div class="text-center">
+		<div class="wrap-pad container">
+			<h1 class="pb-3">
+				<i class="fas fa-cog"></i> Administracija
+				aplikacije
+			</h1>
 
-						<table class="table">
-							<tbody>
-								<tr>
-									<td><a
-										href="${pageContext.request.contextPath}/administracija/korisnici">
-											Korisnici </a></td>
+			<c:url var="korisniciLink" value="/administracija/korisnici">
+			</c:url>
+			<c:url var="udruzenjaLink" value="/administracija/udruzenja">
+			</c:url>
+			<c:url var="umetniciLink" value="/administracija/umetnici">
+			</c:url>
+			<c:url var="podrucjaLink" value="/administracija/kulturna-podrucja">
+			</c:url>
 
-									<td><a
-										href="${pageContext.request.contextPath}/administracija/udruzenja">
-											Udruzenja </a></td>
-								<tr>
-								
-								<tr>
-									<td><a
-										href="${pageContext.request.contextPath}/administracija/umetnici">
-											Umetnici </a></td>
-									<td><a
-										href="${pageContext.request.contextPath}/administracija/kulturna-podrucja">
-											Kulturna podrucja </a></td>
-								<tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
+			<div class="row mt-2 justify-content-around">
+				<button type="button" class="btn btn-primary col-5 admin-opcija"
+					onclick="window.location='${korisniciLink}';">Korisnici</button>
+				<button type="button" class="btn btn-primary col-5 admin-opcija"
+					onclick="window.location='${udruzenjaLink}';">Udruzenja</button>
+			</div>
+			<div class="row mt-2 justify-content-around">
+				<button type="button" class="btn btn-primary col-5 admin-opcija"
+					onclick="window.location='${umetniciLink}';">Umetnici</button>
+				<button type="button" class="btn btn-primary col-5 admin-opcija"
+					onclick="window.location='${podrucjaLink}';">Kulturna
+					podrucja</button>
 			</div>
 		</div>
-	</section>
+	</div>
 
 	<%@ include file="footer.jsp"%>
-
-	<script
-		src="${pageContext.request.contextPath}/resources/assets/js/jquery.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/assets/js/bootstrap.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/assets/js/jquery.prettyPhoto.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/assets/js/scrollReveal.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/assets/scripts/custom.js"></script>
+	
 </body>
 
 </html>

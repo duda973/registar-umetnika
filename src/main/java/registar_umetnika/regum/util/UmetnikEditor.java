@@ -14,7 +14,7 @@ public class UmetnikEditor extends PropertyEditorSupport {
 	private UmetnikService umetnikService;
 	
 	public void setAsText(String text) {
-		Umetnik u = this.umetnikService.vratiUmetnika(Integer.valueOf(text));
+		Umetnik u = this.umetnikService.vratiUmetnika("id", text);
 		this.setValue(u);
 	}
 }

@@ -43,7 +43,13 @@ public class UmetnikServiceImpl implements UmetnikService {
 
 	@Override
 	@Transactional
-	public Umetnik vratiUmetnika(Integer valueOf) {
-		return umetnikDAO.vratiUmetnika(valueOf);
+	public Umetnik vratiUmetnika(String property, String value) {
+		return umetnikDAO.vratiUmetnika(property, value);
+	}
+
+	@Override
+	@Transactional
+	public void obrisiUmetnika(int id) {
+		umetnikDAO.obrisiUmetnika(id);
 	}
 }

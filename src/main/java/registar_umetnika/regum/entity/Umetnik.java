@@ -17,6 +17,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -105,6 +107,7 @@ public class Umetnik implements Serializable{
 	private Korisnik korisnik;
 
 	@OneToMany(mappedBy = "umetnik", cascade = CascadeType.ALL)
+	@JsonBackReference
 	private Set<Uplata> uplate = new HashSet<>();
 	
 	@OneToMany(mappedBy = "umetnik", cascade = CascadeType.ALL)

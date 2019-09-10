@@ -15,5 +15,8 @@ public interface UmetnikService {
 
 	TipUmetnika vratiTipUmetnika(int id);
 
-	Umetnik vratiUmetnika(Integer valueOf);
+
+	Umetnik vratiUmetnika(String property, String value);
+
+	void obrisiUmetnika(int id);
 }

@@ -13,53 +13,24 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <title>Registar samostalnih umetnika</title>
-<link href='http://fonts.googleapis.com/css?family=Open+Sans'
-	rel='stylesheet' type='text/css'>
-<link
-	href="${pageContext.request.contextPath}/resources/assets/css/bootstrap.min.css"
-	rel="stylesheet" />
-<link
-	href="${pageContext.request.contextPath}/resources/assets/css/font-awesome.min.css"
-	rel="stylesheet" />
-<link
-	href="${pageContext.request.contextPath}/resources/assets/css/prettyPhoto.css"
-	rel="stylesheet" />
-<link
-	href="${pageContext.request.contextPath}/resources/assets/css/style.css"
-	rel="stylesheet" />
+<%@ include file="import-header.jsp"%>
 </head>
 
 <body>
 	<%@ include file="header.jsp"%>
 
-	<section id="about-section">
-		<div class="wrap-pad">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 ">
-					<div class="text-center">
+	<div class="wrap-pad container">
+		<div class="text-center">
+			<h1>
+				<i class="fa fa-book"></i> Dobrodosli na registar samostalnih
+				umetnika
+			</h1>
 
-						<h1>
-							<i class="fa fa-book small-icons bk-color-brown"></i> Dobrodosli na registar samostalnih umetnika
-						</h1>
-						
-					</div>
-				</div>
-			</div>
 		</div>
-	</section>
+	</div>
 
 	<%@ include file="footer.jsp"%>
 
-	<script
-		src="${pageContext.request.contextPath}/resources/assets/js/jquery.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/assets/js/bootstrap.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/assets/js/jquery.prettyPhoto.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/assets/js/scrollReveal.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/assets/scripts/custom.js"></script>
 </body>
 
 </html>

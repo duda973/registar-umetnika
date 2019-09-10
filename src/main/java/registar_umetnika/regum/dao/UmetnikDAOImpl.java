@@ -47,10 +47,23 @@ public class UmetnikDAOImpl implements UmetnikDAO {
 	}
 
 	@Override
-	public Umetnik vratiUmetnika(Integer valueOf) {
+	public Umetnik vratiUmetnika(String property, String value) {
 		Session currentSession = sessionFactory.getCurrentSession();
-		Query theQuery = currentSession.createQuery("from Umetnik where umetnikId=:id", Umetnik.class);
-		theQuery.setParameter("id", valueOf);
+		Query theQuery = currentSession.createQuery("from Umetnik where " + property + "=:value", Umetnik.class);
+		
+		if(property.equals("id"))
+			theQuery.setParameter("value", Integer.parseInt(value));
+		else 
+			theQuery.setParameter("value", value);
+			
 		return (Umetnik) theQuery.getResultList().get(0);
+	}
+
+	@Override
+	public void obrisiUmetnika(int id) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		Query query = currentSession.createQuery("delete Umetnik where umetnikId = :ID");
+		query.setParameter("ID", id);
+		query.executeUpdate();
 	}
 }
