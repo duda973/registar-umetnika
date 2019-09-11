@@ -1,1 +1,1 @@
-<% response.sendRedirect("pocetna"); %>
+<% response.sendRedirect("profil"); %>

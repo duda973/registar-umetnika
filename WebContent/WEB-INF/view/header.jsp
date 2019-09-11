@@ -24,22 +24,30 @@
 				</li>
 			</ul>
 			
-			<ul class="navbar-nav">				
-				<li class="nav-item dropdown active">
-				<a
-					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"><i class="fas fa-users-cog"></i> Administracija</a>
-					
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#">Korisnici</a> 
-						<a class="dropdown-item" href="#">Udruzenja</a>
-						<a class="dropdown-item" href="#">Umetnici</a>
-						<a class="dropdown-item" href="#">Kulturna podrucja</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="${pageContext.request.contextPath}/administracija">Sve opcije</a>						
-					</div>
-				</li>
+			<ul class="navbar-nav">		
+				<li class="nav-item active"><a class="nav-link" href="/regum/administracija/umetnici"> <i
+						class="fa fa-users color-white"></i> Umetnici
+				</a></li>
+				<li class="nav-item active"><a class="nav-link" href="/regum/administracija/udruzenja"> <i
+						class="fa fa-users color-white"></i> Udruzenja
+				</a></li>
+				
+				<sec:authorize access="hasAuthority('Superadmin') OR hasAuthority('Ministarstvo')">
+					<li class="nav-item dropdown active">
+					<a  class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false"><i class="fas fa-users-cog"></i> Administracija</a>
+						
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="/regum/administracija/korisnici">Korisnici</a> 
+							<a class="dropdown-item" href="/regum/administracija/udruzenja">Udruzenja</a>
+							<a class="dropdown-item" href="/regum/administracija/umetnici">Umetnici</a>
+							<a class="dropdown-item" href="/regum/administracija/kulturna-podrucja">Kulturna podrucja</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="${pageContext.request.contextPath}/administracija">Sve opcije</a>						
+						</div>
+					</li>
+				</sec:authorize>
 
 				<sec:authorize access="!isAuthenticated()">
 					<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/login"> <i

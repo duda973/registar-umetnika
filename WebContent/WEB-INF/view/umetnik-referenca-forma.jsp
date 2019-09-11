@@ -35,7 +35,7 @@
 						<label for="Naziv">Naziv</label>
 					</div>
 					<div class="col-75">
-						<form:input type="text" path="naziv" cssClass="form-control"
+						<form:input required="required" type="text" path="naziv" cssClass="form-control"
 							placeholder="Naziv reference.." />
 					</div>
 				</div>
@@ -45,7 +45,7 @@
 						<label for="datum">Datum</label>
 					</div>
 					<div class="col-75">
-						<form:input path="datum" type="date" cssClass="form-control" />
+						<form:input required="required" path="datum" type="date" cssClass="form-control" />
 					</div>
 				</div>
 
@@ -54,7 +54,7 @@
 						<label for="opis">Opis</label>
 					</div>
 					<div class="col-75">
-						<form:textarea path="opis" placeholder="Opis.."
+						<form:textarea required="required" path="opis" placeholder="Opis.."
 							style="height: 200px"></form:textarea>
 					</div>
 				</div>

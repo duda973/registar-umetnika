@@ -38,10 +38,10 @@
 					</div>
 				</c:if>
 				<label for="username">Username</label>
-				<input type="text" name="username" class="form-control"
+				<input type="text" required="required" name="username" class="form-control"
 					placeholder="Unesite username" />
 				<label for="password">Password</label>
-				<input type="password" name="password" class="form-control"
+				<input type="password" required="required" name="password" class="form-control"
 					placeholder="Unesite sifru">
 				<label for="submit"></label>
 

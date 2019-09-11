@@ -21,16 +21,16 @@
 	<div class="wrap-pad container">
 		<div class="text-center">
 			<h1>
-				<i class="fa fa-book small-icons bk-color-blue"></i> Lista udruzenja
+				<i class="fa fa-book"></i> Udruzenja
 			</h1>
 
 			<table class="table table-hover">
 				<thead class="thead-dark">
 					<tr>
+						<th class='text-center'>Naziv</th>
 						<th class='text-center'>Maticni broj</th>
 						<th class='text-center'>PIB</th>
 						<th class='text-center'>Registarski broj</th>
-						<th class='text-center'>Naziv</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -46,16 +46,14 @@
 								value="${trenutnoUdruzenje.udruzenjeId}" />
 						</c:url>
 						<c:url var="udruzenjeLink"
-							value="/administracija/udruzenja/prikaz">
-							<c:param name="udruzenjeID"
-								value="${trenutnoUdruzenje.udruzenjeId}" />
+							value="/administracija/udruzenja/${trenutnoUdruzenje.pib}">
 						</c:url>
 
 						<tr onclick="window.location='${udruzenjeLink}';">
+							<td><strong>${trenutnoUdruzenje.naziv}</strong></td>
 							<td>${trenutnoUdruzenje.maticniBroj}</td>
 							<td>${trenutnoUdruzenje.pib}</td>
 							<td>${trenutnoUdruzenje.registarskiBroj}</td>
-							<td>${trenutnoUdruzenje.naziv}</td>
 						<tr>
 					</c:forEach>
 				</tbody>

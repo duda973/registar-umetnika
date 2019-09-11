@@ -28,23 +28,23 @@
 			<form:form action="odaberi-kulturna-podrucja"
 				modelAttribute="novaPripadnost" method="POST">
 				<label class="margintop10">Selektuj kulturno podrucje</label>
-				<form:select path="kulturnoPodrucje"
+				<form:select required="required" path="kulturnoPodrucje"
 					cssClass="form-control text-center">
 					<form:options items="${podrucja}" itemLabel="nazivPodrucja"
 						itemValue="podrucjeId" cssClass="form-control text-center" />
 				</form:select>
 
 				<label class="margintop10" for="datumUnosa">Datum unosa</label>
-				<form:input type="date" path="datumUnosa" cssClass="form-control" />
+				<form:input required="required" type="date" path="datumUnosa" cssClass="form-control" />
 
 				<label class="margintop10" for="submit"></label>
 				<input type="submit" name="dalje"
 					value="Unesi novo kulturno podrucje"
-					class="form-control btn-info margintop10 text-center">
+					class="form-control btn-info mb-3 text-center">
 				<input type="submit" name="odustani" value="Odustani"
-					class="form-control btn-warning margintop10 text-center">
+					class="form-control btn-warning mb-3 text-center">
 				<input type="submit" name="sacuvaj" value="Sacuvaj novo udruzenje"
-					class="form-control btn-success margintop10 text-center">
+					class="form-control btn-success mb-4 text-center">
 
 			</form:form>
 		</div>

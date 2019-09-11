@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import lombok.val;
 import registar_umetnika.regum.dao.interfaces.KorisnikDAO;
 import registar_umetnika.regum.entity.Korisnik;
 import registar_umetnika.regum.entity.Uloga;
@@ -27,12 +28,6 @@ public class KorisnikServiceImpl implements KorisnikService {
 	@Transactional
 	public void sacuvajKorisnika(Korisnik noviKorisnik) {
 		korisnikDAO.sacuvajKorisnika(noviKorisnik);
-	}
-
-	@Override
-	@Transactional
-	public Korisnik vratiKorisnika(int id) {
-		return korisnikDAO.vratiKorisnika(id);
 	}
 
 	@Override
@@ -63,6 +58,12 @@ public class KorisnikServiceImpl implements KorisnikService {
 	@Transactional
 	public void obrisiKorisnika(int id) {
 		korisnikDAO.obrisiKorisnika(id);
+	}
+
+	@Override
+	@Transactional
+	public Korisnik vratiKorisnika(String property, String value) {
+		return korisnikDAO.vratiKorisnika(property, value);
 	}
 	
 }

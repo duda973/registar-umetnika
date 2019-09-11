@@ -21,9 +21,7 @@
 	<div class="wrap-pad container">
 		<div class="text-center">
 			<h1>
-				<i class="fa fa-book small-icons bk-color-blue"></i> Lista kulturnih
-				podrucja
-			</h1>
+				<i class="fa fa-book"></i> Kulturna podrucja</h1>
 
 			<table class="table">
 				<thead class="thead-dark">

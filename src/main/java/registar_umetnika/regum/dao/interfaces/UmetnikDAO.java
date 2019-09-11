@@ -19,4 +19,8 @@ public interface UmetnikDAO {
 
 	void obrisiUmetnika(int id);
 
+	void azurirajKorisnikaUmetniku(Integer umetnikID, Integer korisnikID);
+
+	boolean imaUmetnikNalog(String id);
+
 }

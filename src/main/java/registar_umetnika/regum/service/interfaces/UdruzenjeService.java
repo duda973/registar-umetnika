@@ -21,5 +21,7 @@ public interface UdruzenjeService {
 
 	List<Udruzenje> vratiUdruzenja(int podrucjeId);
 
+	Udruzenje vratiUdruzenje(String property, String value);
+
 	
 }

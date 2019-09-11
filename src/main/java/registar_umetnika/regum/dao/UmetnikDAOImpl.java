@@ -2,6 +2,7 @@ package registar_umetnika.regum.dao;
 
 import java.util.List;
 
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import registar_umetnika.regum.dao.interfaces.UmetnikDAO;
 import registar_umetnika.regum.entity.TipUmetnika;
+import registar_umetnika.regum.entity.Udruzenje;
 import registar_umetnika.regum.entity.Umetnik;
 
 @Repository
@@ -49,14 +51,17 @@ public class UmetnikDAOImpl implements UmetnikDAO {
 	@Override
 	public Umetnik vratiUmetnika(String property, String value) {
 		Session currentSession = sessionFactory.getCurrentSession();
-		Query theQuery = currentSession.createQuery("from Umetnik where " + property + "=:value", Umetnik.class);
+		String sql = "SELECT * FROM umetnik WHERE " + property + " = '" + value + "';";
+
+		SQLQuery query = currentSession.createSQLQuery(sql);
+		query.addEntity(Umetnik.class);
+
+		List lista = query.list();
 		
-		if(property.equals("id"))
-			theQuery.setParameter("value", Integer.parseInt(value));
-		else 
-			theQuery.setParameter("value", value);
-			
-		return (Umetnik) theQuery.getResultList().get(0);
+		if(lista.size() > 0)
+			return (Umetnik) lista.get(0);
+		
+		return null;
 	}
 
 	@Override
@@ -65,5 +70,29 @@ public class UmetnikDAOImpl implements UmetnikDAO {
 		Query query = currentSession.createQuery("delete Umetnik where umetnikId = :ID");
 		query.setParameter("ID", id);
 		query.executeUpdate();
+	}
+
+	@Override
+	public void azurirajKorisnikaUmetniku(Integer umetnikID, Integer korisnikID) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		Query query = currentSession.createQuery("update Umetnik set korisnikId = :korisnikid where umetnikId = :umetnikid");
+		
+		query.setParameter("korisnikid", korisnikID);
+		query.setParameter("umetnikid", umetnikID);
+		
+		query.executeUpdate();
+	}
+
+	@Override
+	public boolean imaUmetnikNalog(String id) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		Query query = currentSession.createQuery("from Umetnik where umetnikId = :umetnikid");
+		query.setParameter("umetnikid", Integer.parseInt(id));
+		
+		List<Umetnik> umetnici = query.getResultList();
+		if(umetnici.get(0).getKorisnik() != null) {
+			return true;
+		}
+		return false;
 	}
 }

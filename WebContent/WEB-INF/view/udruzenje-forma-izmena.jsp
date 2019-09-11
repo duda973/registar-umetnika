@@ -13,7 +13,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <title>Registar samostalnih umetnika</title>
-
+<%@ include file="import-header.jsp"%>
 </head>
 
 <body>
@@ -22,47 +22,95 @@
 	<div class="wrap-pad container">
 		<div class="text-center">
 			<h1>
-				<i class="fa fa-book small-icons bk-color-brown"></i>Udruzenje forma
+				<i class="fa fa-book"></i>Izmeni podatke udruzenja
 			</h1>
 
 			<form:form action="sacuvaj-izmene" modelAttribute="udruzenje"
 				method="POST">
 				<form:hidden path="udruzenjeId" />
 
-				<label class="margintop10" for="maticniBroj">Maticni broj</label>
-				<form:input path="maticniBroj" cssClass="form-control" />
+				<div class="row">
+					<div class="col-25">
+						<label class="" for="maticniBroj">Maticni broj</label>
+					</div>
+					<div class="col-75">
+						<form:input required="required" path="maticniBroj" cssClass="form-control" />
+					</div>
+				</div>
 
-				<label class="margintop10" for="pib">PIB</label>
-				<form:input path="pib" cssClass="form-control" />
+				<div class="row">
+					<div class="col-25">
+						<label class="" for="pib">PIB</label>
+					</div>
+					<div class="col-75">
+						<form:input required="required" path="pib" cssClass="form-control" />
+					</div>
+				</div>
 
-				<label class="margintop10" for="naziv">Naziv</label>
-				<form:input path="naziv" cssClass="form-control" />
+				<div class="row">
+					<div class="col-25">
+						<label class="" for="naziv">Naziv</label>
+					</div>
+					<div class="col-75">
+						<form:input required="required" path="naziv" cssClass="form-control" />
+					</div>
+				</div>
 
-				<label class="margintop10" for="sediste">Sediste</label>
-				<form:input path="sediste" cssClass="form-control" />
+				<div class="row">
+					<div class="col-25">
+						<label class="" for="sediste">Sediste</label>
+					</div>
+					<div class="col-75">
+						<form:input required="required" path="sediste" cssClass="form-control" />
+					</div>
+				</div>
 
-				<label class="margintop10" for="adresa">Adresa</label>
-				<form:input path="adresa" cssClass="form-control" />
+				<div class="row">
+					<div class="col-25">
+						<label class="" for="adresa">Adresa</label>
+					</div>
+					<div class="col-75">
+						<form:input required="required" path="adresa" cssClass="form-control" />
+					</div>
+				</div>
 
-				<label class="margintop10" for="datumOsnivanja">Datum
-					osnivanja</label>
-				<form:input type="date" path="datumOsnivanja"
-					cssClass="form-control" />
+				<div class="row">
+					<div class="col-25">
+						<label class="" for="datumOsnivanja">Datum
+							osnivanja</label>
+					</div>
+					<div class="col-75">
+						<form:input required="required" type="date" path="datumOsnivanja"
+							cssClass="form-control" />
+					</div>
+				</div>
 
-				<label class="margintop10" for="zastupnik">Zastupnik</label>
-				<form:input path="zastupnik" cssClass="form-control" />
+				<div class="row">
+					<div class="col-25">
+						<label class="" for="zastupnik">Zastupnik</label>
+					</div>
+					<div class="col-75">
+						<form:input required="required" path="zastupnik" cssClass="form-control" />
+					</div>
+				</div>
 
-				<label class="margintop10" for="registarskibroj">Registarski
-					broj</label>
-				<form:input path="registarskiBroj" cssClass="form-control" />
+				<div class="row">
+					<div class="col-25">
+						<label class="" for="registarskibroj">Registarski
+							broj</label>
+					</div>
+					<div class="col-75">
+						<form:input required="required" path="registarskiBroj" cssClass="form-control" />
+					</div>
+				</div>
 
 				<label class="margintop10" for="submit"></label>
 				<input type="submit" value="Sacuvaj izmene"
-					class="form-control btn-success margintop10 text-center">
+					class="form-control btn-success mb-3 text-center">
 			</form:form>
 		</div>
 
-		<div class="margintop10">
+		<div class="mb-4 mt-3">
 			<input type="button" value="Odustani"
 				class="form-control btn-info text-center"
 				onclick="window.location.href='${pageContext.request.contextPath}/administracija/udruzenja'; return false;" />

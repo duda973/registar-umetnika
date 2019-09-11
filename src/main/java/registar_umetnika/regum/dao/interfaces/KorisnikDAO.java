@@ -11,8 +11,6 @@ public interface KorisnikDAO {
 
 	public void sacuvajKorisnika(Korisnik noviKorisnik);
 
-	public Korisnik vratiKorisnika(int id);
-
 	public List<Uloga> vratiUloge();
 
 	public void obrisiUlogu(int id);
@@ -22,4 +20,6 @@ public interface KorisnikDAO {
 	public Uloga vratiUlogu(Integer valueOf);
 
 	public void obrisiKorisnika(int id);
+
+	public Korisnik vratiKorisnika(String property, String value);
 }

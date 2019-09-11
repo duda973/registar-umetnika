@@ -13,12 +13,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import registar_umetnika.regum.entity.Korisnik;
 import registar_umetnika.regum.entity.Referenca;
 import registar_umetnika.regum.entity.Umetnik;
 import registar_umetnika.regum.entity.Uplata;
 import registar_umetnika.regum.service.interfaces.ReferenceService;
 import registar_umetnika.regum.service.interfaces.UmetnikService;
 import registar_umetnika.regum.service.interfaces.UplateService;
+import registar_umetnika.regum.util.KorisnikEditor;
 import registar_umetnika.regum.util.UmetnikEditor;
 
 @Controller
@@ -33,6 +35,8 @@ public class UmetnikController {
 	private ReferenceService referenceService;
 	@Autowired
 	private UmetnikEditor umetnikEditor;
+	@Autowired
+	private KorisnikEditor korisnikEditor;
 
 	@RequestMapping("/umetnici")
 	public String prikaziUmetnike(Model theModel) {
@@ -51,11 +55,12 @@ public class UmetnikController {
 		return "redirect:/administracija/umetnici";
 	}
 	
-	@GetMapping("/umetnici/izmeni-umetnika")
-	public String izmeniUmetnika(@RequestParam("umetnikID") int id, Model model) {
-		model.addAttribute("umetnik", umetnikService.vratiUmetnika("id", id + ""));
+	@GetMapping("/umetnici/izmeni-podatke")
+	public String izmeniUmetnika(@RequestParam("jmbg") String jmbg, Model model) {
+		
+		model.addAttribute("umetnik", umetnikService.vratiUmetnika("jmbg", jmbg));
 		model.addAttribute("tipoviUmetnika", umetnikService.vratiTipoveUmetnika());
-
+		
 		return "umetnik-forma";
 	}
 	
@@ -117,5 +122,6 @@ public class UmetnikController {
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
 		binder.registerCustomEditor(Umetnik.class, this.umetnikEditor);
+		binder.registerCustomEditor(Korisnik.class, this.korisnikEditor);
 	}
 }

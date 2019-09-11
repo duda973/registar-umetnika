@@ -31,39 +31,7 @@
 		<div class="container pt-3">
 			<div class="row profile">
 
-				<div class="col-md-3">
-					<div class="profile-sidebar">
-						<div class="profile-userpic">
-							<img
-								src="https://static.change.org/profile-img/default-user-profile.svg"
-								class="img-responsive" alt="">
-						</div>
-
-						<div class="profile-usertitle">
-							<div class="profile-usertitle-name">${umetnik.ime}
-								${umetnik.prezime}</div>
-							<div class="profile-usertitle-job">${umetnik.tipUmetnika.nazivTipa}</div>
-						</div>
-
-						<div class="profile-userbuttons">
-							<button type="button" class="btn btn-primary btn-sm">Dodaj
-								referencu</button>
-							<button type="button" class="btn btn-danger btn-sm">Odjavi
-								se</button>
-						</div>
-
-						<div class="profile-usermenu">
-							<ul class="nav">
-								<li><a href="${infoLink}"><i
-										class="glyphicon glyphicon-home"></i> Osnovne informacije</a></li>
-								<li><a href="${uplateLink}"><i
-										class="glyphicon glyphicon-usd"></i> Uplate</a></li>
-								<li class="active"><a href="${referenceLink}"><i
-										class="glyphicon glyphicon-flag"></i> Reference</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
+				<%@ include file="profil-umetnika-import.jsp" %>
 
 				<div class="col-md-9">
 					<div class="profile-content">
@@ -72,7 +40,7 @@
 						</p>
 						<div style="overflow-x: auto;">
 							<table class="table">
-								<thead>
+								<thead class="thead-dark">
 									<tr>
 										<th>Naziv</th>
 										<th>Opis</th>

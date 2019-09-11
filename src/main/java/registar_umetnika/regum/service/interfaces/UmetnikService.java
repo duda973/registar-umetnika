@@ -19,4 +19,8 @@ public interface UmetnikService {
 	Umetnik vratiUmetnika(String property, String value);
 
 	void obrisiUmetnika(int id);
+
+	void azurirajKorisnikaUmetniku(Integer umetnikID, Integer korisnikId);
+
+	boolean imaUmetnikNalog(String id);
 }

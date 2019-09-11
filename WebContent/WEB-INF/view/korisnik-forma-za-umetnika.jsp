@@ -28,25 +28,8 @@
 			<form:form action="sacuvaj-korisnika" modelAttribute="korisnik"
 				method="POST">
 				<form:hidden path="korisnikId" />
-
-
-				<div class="row">
-					<div class="col-25">
-						<label class="" for="ime">Ime</label>
-					</div>
-					<div class="col-75">
-						<form:input required="required" path="ime" cssClass="form-control" placeholder="Ime.." />
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-25">
-						<label class="" for="prezime">Prezime</label>
-					</div>
-					<div class="col-75">
-						<form:input required="required" path="prezime" cssClass="form-control" placeholder="Prezime.." />
-					</div>
-				</div>
+				<form:hidden path="ime" />
+				<form:hidden path="prezime" />
 
 				<div class="row">
 					<div class="col-25">
@@ -83,7 +66,7 @@
 					<div class="col-75">
 						<form:select required="required" path="uloga" cssClass="form-control text-center">
 							<form:options items="${uloge}" itemLabel="nazivUloge"
-								itemValue="ulogaId" class="form-control text-center" />
+								itemValue="ulogaId" class="form-control text-center" selected="selected" />
 						</form:select>
 					</div>
 				</div>

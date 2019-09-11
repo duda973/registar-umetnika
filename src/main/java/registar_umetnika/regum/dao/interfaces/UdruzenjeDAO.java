@@ -21,4 +21,6 @@ public interface UdruzenjeDAO {
 
 	List<Udruzenje> vratiUdruzenja(int podrucjeId);
 
+	Udruzenje vratiUdruzenje(String property, String value);
+
 }

@@ -21,9 +21,7 @@
 	<div class="wrap-pad container">
 		<div class="text-center">
 			<h1>
-				<i class="fa fa-book small-icons bk-color-blue"></i>Uloge na
-				aplikaciji
-			</h1>
+				<i class="fa fa-book"></i> Uloge aplikacije</h1>
 
 			<table class="table">
 				<thead class="thead-dark">

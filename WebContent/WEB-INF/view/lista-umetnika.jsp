@@ -21,7 +21,7 @@
 	<div class="wrap-pad container">
 		<div class="text-center">
 			<h1>
-				<i class="fa fa-book small-icons bk-color-blue"></i> Lista umetnika
+				<i class="fa fa-book"></i> Umetnici
 			</h1>
 
 			<table class="table">
@@ -36,8 +36,8 @@
 				<tbody>
 					<c:forEach var="trenutniUmetnik" items="${umetnici}">
 						<c:url var="izmeniLink"
-							value="/administracija/umetnici/izmeni-umetnika">
-							<c:param name="umetnikID" value="${trenutniUmetnik.umetnikId}" />
+							value="/administracija/umetnici/izmeni-podatke">
+							<c:param name="jmbg" value="${trenutniUmetnik.jmbg}" />
 						</c:url>
 						<c:url var="obrisiLink"
 							value="/administracija/umetnici/obrisi-umetnika">

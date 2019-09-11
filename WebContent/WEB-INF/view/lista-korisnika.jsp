@@ -23,15 +23,15 @@
 	<div class="wrap-pad container">
 		<div class="text-center">
 			<h1>
-				<i class="fa fa-book small-icons bk-color-blue"></i>Korisnici
+				<i class="fa fa-book"></i> Korisnici
 				aplikacije
 			</h1>
 
 			<table class="table table-hover">
-				<thead class="thead-dark">
+				<thead class="thead-dark ">
 					<tr>
-						<th class='text-center'>Ime</th>
-						<th class='text-center'>Prezime</th>
+						<th>Ime</th>
+						<th>Prezime</th>
 						<th class='text-center'>Username</th>
 						<sec:authorize access="hasAuthority('Superadmin')">
 							<th class='text-center' style='width: 20%;'>Password</th>

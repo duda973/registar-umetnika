@@ -7,12 +7,13 @@
 
 	<http auto-config="true">
 		<intercept-url pattern="/pocetna" access="permitAll" />
-<!-- 		<intercept-url pattern="/administracija/**" access="hasAuthority('Superadmin')" /> -->
-<!-- 		<intercept-url pattern="/administracija/korisnici" access="hasAuthority('Superadmin') OR hasAuthority('Ministarstvo')" /> -->
-		
-		<intercept-url pattern="/administracija" access="hasAuthority('Superadmin') OR hasAuthority('Ministarstvo') OR hasAuthority('Udruyenje') OR hasAuthority('Lokalna samouprava')" />
-		<intercept-url pattern="/administracija/korisnici" access="hasAuthority('Superadmin') OR hasAuthority('Ministarstvo') OR hasAuthority('Udruyenje') OR hasAuthority('Lokalna samouprava')" />
+		<intercept-url pattern="/administracija/udruzenja" access="permitAll" />
+		<intercept-url pattern="/administracija/umetnici" access="permitAll" />
+		<intercept-url pattern="/administracija/**" access="hasAuthority('Superadmin') OR hasAuthority('Ministarstvo') OR hasAuthority('Udruyenje') OR hasAuthority('Lokalna samouprava')" />
+		<!-- <intercept-url pattern="/administracija/korisnici" access="hasAuthority('Superadmin') OR hasAuthority('Ministarstvo') OR hasAuthority('Udruyenje') OR hasAuthority('Lokalna samouprava')" />
 		<intercept-url pattern="/administracija/korisnici/**"  access="hasAuthority('Superadmin')"/>
+		<intercept-url pattern="/administracija/udruzenja/**"  access="hasAuthority('Superadmin')"/>
+		<intercept-url pattern="/administracija/umetnici/**" access="hasAuthority('Superadmin') OR hasAuthority('Ministarstvo') OR hasAuthority('Udruyenje') OR hasAuthority('Lokalna samouprava') OR hasAuthority('Umetnik')" /> -->
 		
 		<form-login  login-page="/login"
                      username-parameter="username"

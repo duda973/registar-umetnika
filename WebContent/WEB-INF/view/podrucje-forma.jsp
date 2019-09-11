@@ -32,7 +32,7 @@
 
 				<label class="margintop10" for="nazivPodrucja">Naziv
 					kulturnog podrucja</label>
-				<form:input path="nazivPodrucja" cssClass="form-control" />
+				<form:input required="required" path="nazivPodrucja" cssClass="form-control" />
 
 				<label class="margintop10" for="uloga">Da li je umetnicko?</label>
 				<form:radiobutton path="umetnicko" id="da" value="da" />
@@ -40,11 +40,11 @@
 
 				<label class="margintop10" for="submit"></label>
 				<input type="submit" value="Sacuvaj kulturno podrucje"
-					class="form-control btn-success margintop10 text-center">
+					class="form-control btn-success mb-3 text-center">
 			</form:form>
 		</div>
 
-		<div class="margintop10">
+		<div class="mb-4 mt-3">
 			<input type="button" value="Odustani"
 				class="form-control btn-info text-center"
 				onclick="window.location.href='${pageContext.request.contextPath}/administracija/kulturna-podrucja'; return false;" />

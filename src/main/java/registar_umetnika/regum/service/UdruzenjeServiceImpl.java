@@ -58,6 +58,12 @@ public class UdruzenjeServiceImpl implements UdruzenjeService {
 	public List<Udruzenje> vratiUdruzenja(int podrucjeId) {
 		return udruzenjeDAO.vratiUdruzenja(podrucjeId);
 	}
+
+	@Override
+	@Transactional
+	public Udruzenje vratiUdruzenje(String property, String value) {
+		return udruzenjeDAO.vratiUdruzenje(property, value);
+	}
 	
 	
 }

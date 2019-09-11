@@ -52,4 +52,17 @@ public class UmetnikServiceImpl implements UmetnikService {
 	public void obrisiUmetnika(int id) {
 		umetnikDAO.obrisiUmetnika(id);
 	}
+
+	@Override
+	@Transactional
+	public void azurirajKorisnikaUmetniku(Integer umetnikID, Integer korisnikID) {
+		umetnikDAO.azurirajKorisnikaUmetniku(umetnikID, korisnikID);
+	}
+
+	@Override
+	@Transactional
+	public boolean imaUmetnikNalog(String id) {
+		return umetnikDAO.imaUmetnikNalog(id);
+	}
+
 }

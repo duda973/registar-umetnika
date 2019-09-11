@@ -2,6 +2,7 @@ package registar_umetnika.regum.dao;
 
 import java.util.List;
 
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Repository;
 import registar_umetnika.regum.dao.interfaces.KorisnikDAO;
 import registar_umetnika.regum.entity.Korisnik;
 import registar_umetnika.regum.entity.Uloga;
+import registar_umetnika.regum.entity.Umetnik;
 
 @Repository
 public class KorisnikDAOImpl implements KorisnikDAO {
@@ -34,11 +36,6 @@ public class KorisnikDAOImpl implements KorisnikDAO {
 		currentSession.saveOrUpdate(noviKorisnik);
 	}
 
-	@Override
-	public Korisnik vratiKorisnika(int id) {
-		Session currentSession = sessionFactory.getCurrentSession();
-		return currentSession.get(Korisnik.class, id);
-	}
 
 	@Override
 	public List<Uloga> vratiUloge() {
@@ -82,6 +79,22 @@ public class KorisnikDAOImpl implements KorisnikDAO {
 		query.setParameter("ID", id);
 		
 		query.executeUpdate();
+	}
+
+	@Override
+	public Korisnik vratiKorisnika(String property, String value) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		String sql = "SELECT * FROM korisnik WHERE " + property + " = '" + value + "';";
+
+		SQLQuery query = currentSession.createSQLQuery(sql);
+		query.addEntity(Korisnik.class);
+
+		List lista = query.list();
+		
+		if(lista.size() > 0)
+			return (Korisnik) lista.get(0);
+		
+		return null;
 	}
 
 
